@@ -36,6 +36,7 @@ public class MainActivity extends BaseActivity {
         items = new ArrayList<>();
         items.add("选择城市");
         items.add("轮播图");
+        items.add("选择图片");
         Logger.e(items.toString());
         adapter = new RVAdapter(items);
         recyclerView.setAdapter(adapter);
@@ -50,6 +51,10 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 1:
                         intent.setClass(MainActivity.this, BannerActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent.setClass(MainActivity.this, SelectImageActivity.class);
                         startActivity(intent);
                         break;
                 }
