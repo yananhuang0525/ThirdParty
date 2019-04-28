@@ -14,6 +14,7 @@ import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
+import com.panku.thirdparty.view.RatingView;
 
 import java.io.File;
 import java.util.List;
@@ -29,6 +30,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class SelectImageActivity extends BaseActivity implements View.OnClickListener, EasyPermissions.PermissionCallbacks {
     private Button btn;
     private ImageView iv;
+    private RatingView ratingView;
     String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     @Override
@@ -38,9 +40,18 @@ public class SelectImageActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     protected void initView() {
+        ratingView = findViewById(R.id.rating);
+        ratingView.setEnabled(false);
         btn = findViewById(R.id.btn);
         btn.setOnClickListener(this);
         iv = findViewById(R.id.iv);
+        ratingView.setOnStarChangeListener(new RatingView.OnStarChangeListener() {
+            @Override
+            public void OnStarChanged(float selectedNumber, int position) {
+
+            }
+        });
+
         if (!EasyPermissions.hasPermissions(this, permissions)) {
             EasyPermissions.requestPermissions(this, "", 101, permissions);
         }
