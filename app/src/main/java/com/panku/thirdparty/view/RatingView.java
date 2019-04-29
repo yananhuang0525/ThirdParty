@@ -141,6 +141,7 @@ public class RatingView extends View {
         if (isEnabled()) {
             switch (event.getAction()) {
                 //减少绘制
+                case MotionEvent.ACTION_DOWN:
                 case MotionEvent.ACTION_MOVE:
                     // 获取用户触摸的x位置
                     float x = event.getX();
@@ -183,6 +184,7 @@ public class RatingView extends View {
                         }
                     }
                     break;
+
             }
         }
 
@@ -210,11 +212,18 @@ public class RatingView extends View {
     /**
      * 设置选中星星的数量
      */
-    public void setSelectedNumber(int selectedNumber) {
+    public void setSelectedNumber(float selectedNumber) {
+        if (!isFull) {
+            int num = (int) selectedNumber;
+            if (selectedNumber <= (num + 0.5f)) {
+                mStatus = Status.HALF;
+            }
+        }
         if (selectedNumber >= 0 && selectedNumber <= mStartTotalNumber) {
             this.mSelectedNumber = selectedNumber;
             invalidate();
         }
+
     }
 
     /**

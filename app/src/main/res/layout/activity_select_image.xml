@@ -7,17 +7,17 @@
 
     <com.panku.thirdparty.view.RatingView
         android:id="@+id/rating"
-        android:layout_width="match_parent"
+        android:layout_width="120dp"
         android:layout_height="20dp"
         android:layout_margin="5dp"
         android:saveEnabled="false"
-        app:selectedNumber="7"
         app:starDistance="5dp"
         app:starEmptyRes="@mipmap/ic_star_unselected"
+        app:starHalfRes="@mipmap/ic_star_half"
         app:starHeight="20dp"
         app:starIsFull="false"
         app:starSelectedRes="@mipmap/ic_star_selected"
-        app:startTotalNumber="10" />
+        app:startTotalNumber="5" />
 
     <Button
         android:id="@+id/btn"

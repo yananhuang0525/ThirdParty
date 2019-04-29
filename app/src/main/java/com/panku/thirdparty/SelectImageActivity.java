@@ -41,14 +41,14 @@ public class SelectImageActivity extends BaseActivity implements View.OnClickLis
     @Override
     protected void initView() {
         ratingView = findViewById(R.id.rating);
-        ratingView.setEnabled(false);
+        ratingView.setSelectedNumber(2.5f);
+//        ratingView.setEnabled(true);
         btn = findViewById(R.id.btn);
         btn.setOnClickListener(this);
         iv = findViewById(R.id.iv);
         ratingView.setOnStarChangeListener(new RatingView.OnStarChangeListener() {
             @Override
             public void OnStarChanged(float selectedNumber, int position) {
-
             }
         });
 
